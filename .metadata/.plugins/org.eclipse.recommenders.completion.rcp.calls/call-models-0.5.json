@@ -1,0 +1,17 @@
+{
+  "/Users/sdecker/android-sdks/platforms/android-19/android.jar": {
+    "location": "/Users/sdecker/android-sdks/platforms/android-19/android.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/Users/sdecker/android-sdks/platforms/android-19/android.jar\u0027. Neither fingerprint \u0027e8f132406a3a24842242815287e32bb1d7ed0b97\u0027 nor symbolic name \u0027android\u0027 are known."
+  },
+  "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/gen": {
+    "location": "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/Users/sdecker/SMRS-AndroidClient/SMRSRemote/gen\u0027. Skipped."
+  },
+  "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/src": {
+    "location": "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/Users/sdecker/SMRS-AndroidClient/SMRSRemote/src\u0027. Skipped."
+  }
+}

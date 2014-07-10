@@ -1,0 +1,67 @@
+[
+  {
+    "symbolicName": "effects",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "3b94ae5b978c115f199978da8d6d64e7f0e3895e",
+    "jarFileModificationDate": "2013-12-21T17:08:56-08:00",
+    "location": "/Users/sdecker/android-sdks/add-ons/addon-google_apis-google-19/libs/effects.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "db0f122c99ef9f90dbab3fada6d191f2880cbb8e",
+    "jarFileModificationDate": "2014-05-11T01:12:57-07:00",
+    "location": "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/libs/android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "usb",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "9de82042368a9130b040b2147726f80ef83cb7a2",
+    "jarFileModificationDate": "2013-12-21T17:08:58-08:00",
+    "location": "/Users/sdecker/android-sdks/add-ons/addon-google_apis-google-19/libs/usb.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e8f132406a3a24842242815287e32bb1d7ed0b97",
+    "jarFileModificationDate": "2013-12-21T17:06:37-08:00",
+    "location": "/Users/sdecker/android-sdks/platforms/android-19/android.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "maps",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "852dd4778f54880cc3bce8a9570a4b2e0b76b060",
+    "jarFileModificationDate": "2013-12-21T17:08:56-08:00",
+    "location": "/Users/sdecker/android-sdks/add-ons/addon-google_apis-google-19/libs/maps.jar",
+    "javaRuntime": false
+  }
+]

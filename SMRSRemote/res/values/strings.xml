@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SMRS Remote</string>
+    <string name="action_settings">Settings</string>
+    <string name="addressInput_hint">Enter URL/IP</string>
+    <string name="add_Button_Text">Add</string>
+    <string name="removeButton">Junk</string>
+    <string name="addButton">add</string>
+    <string name="deleteButton">delete</string>
+    <string name="placeholder">default</string>
+    <string name="startBtn">Start</string>
+
+</resources>
