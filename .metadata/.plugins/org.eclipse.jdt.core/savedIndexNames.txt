@@ -1,6 +1,5 @@
 INDEX VERSION 1.126+/Users/sdecker/SMRS-AndroidClient/.metadata/.plugins/org.eclipse.jdt.core
 4095177953.index
-3942371152.index
 3028232877.index
 255867810.index
 4237300712.index

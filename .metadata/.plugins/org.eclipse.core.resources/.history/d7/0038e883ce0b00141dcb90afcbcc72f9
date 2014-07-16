@@ -21,7 +21,6 @@ public class UdpClient
 {
 	private InetAddress URL = null;
 	private final String firstMessage = "hello";
-	private final String secondMessage = "start"; 
 	private Boolean canSend = false;
 	private DatagramSocket socket = null;
 	private DatagramPacket sendP = null;
@@ -29,8 +28,6 @@ public class UdpClient
 	private byte[] sendData;
 	private byte[] recieveData;
 	private byte[] encryptedData = null;
-	private byte[] Key = null;
-	private Context Appcontext = null;
 	Encrypt encryption;
 	
 	/**
@@ -40,47 +37,45 @@ public class UdpClient
 	 */
 	UdpClient( Context context, String address,byte[] key)
 	{
-		Key = key;
-		Appcontext = context;
 		sendData = firstMessage.getBytes();
 		recieveData = new byte[100];
 		encryption = new Encrypt();
 		
 		/*encrypt the payload*/
 		try{
-			encryptedData = encryption.encrypt(sendData, Key, Key);
+			encryptedData = encryption.encrypt(sendData, key, key);
 		}
 		catch(NoSuchAlgorithmException NSAE){
-			ToastMessage.showToast(Appcontext,NSAE.toString());
+			ToastMessage.showToast(context,NSAE.toString());
 			canSend = false;
 		}
 		catch(NoSuchPaddingException NSPE){
-			ToastMessage.showToast(Appcontext,NSPE.toString());
+			ToastMessage.showToast(context,NSPE.toString());
 			canSend = false;
 		}
 		catch(InvalidKeyException IKE){
-			ToastMessage.showToast(Appcontext,IKE.toString());
+			ToastMessage.showToast(context,IKE.toString());
 			canSend = false;
 		}
 		catch(InvalidAlgorithmParameterException IAPE){
-			ToastMessage.showToast(Appcontext,IAPE.toString());
+			ToastMessage.showToast(context,IAPE.toString());
 			canSend = false;
 		}
 		catch(IllegalBlockSizeException IBSE){
-			ToastMessage.showToast(Appcontext,IBSE.toString());
+			ToastMessage.showToast(context,IBSE.toString());
 			canSend = false;
 		}
 		catch(BadPaddingException BPE){
-			ToastMessage.showToast(Appcontext,BPE.toString());
+			ToastMessage.showToast(context,BPE.toString());
 			canSend = false;
 		}
 		
 		/*Create the packets for sending and recieving*/
 		try{	
-			URL = InetAddress.getByName(address);
-			sendP= new DatagramPacket(encryptedData,sendData.length,URL,3444);
-			recieveP = new DatagramPacket(recieveData,recieveData.length);
-			canSend = true;
+		URL = InetAddress.getByName(address);
+		sendP= new DatagramPacket(encryptedData,sendData.length,URL,3444);
+		recieveP = new DatagramPacket(recieveData,recieveData.length);
+		canSend = true;
 		}
 		catch(UnknownHostException ex){
 			canSend = false;
@@ -122,44 +117,6 @@ public class UdpClient
 	}
 	private void Respond()
 	{
-		
-	}
-	private void translate(DatagramPacket recieved)
-	{ 
-		byte [] recievedBytes = null;
-		String recievedString;
-		try{
-		recievedBytes = encryption.decrypt(recieved.getData(),Key,Key);
-		}
-		catch(NoSuchAlgorithmException NSAE){
-			ToastMessage.showToast(Appcontext,NSAE.toString());
-			canSend = false;
-		}
-		catch(NoSuchPaddingException NSPE){
-			ToastMessage.showToast(Appcontext,NSPE.toString());
-			canSend = false;
-		}
-		catch(InvalidKeyException IKE){
-			ToastMessage.showToast(Appcontext,IKE.toString());
-			canSend = false;
-		}
-		catch(InvalidAlgorithmParameterException IAPE){
-			ToastMessage.showToast(Appcontext,IAPE.toString());
-			canSend = false;
-		}
-		catch(IllegalBlockSizeException IBSE){
-			ToastMessage.showToast(Appcontext,IBSE.toString());
-			canSend = false;
-		}
-		catch(BadPaddingException BPE){
-			ToastMessage.showToast(Appcontext,BPE.toString());
-		}
-		try {
-			recievedString = new String(recievedBytes,"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 	}
 

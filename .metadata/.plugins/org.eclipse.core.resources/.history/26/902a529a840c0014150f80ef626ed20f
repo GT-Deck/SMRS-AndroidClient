@@ -126,41 +126,12 @@ public class UdpClient
 	}
 	private void translate(DatagramPacket recieved)
 	{ 
-		byte [] recievedBytes = null;
-		String recievedString;
 		try{
-		recievedBytes = encryption.decrypt(recieved.getData(),Key,Key);
-		}
-		catch(NoSuchAlgorithmException NSAE){
-			ToastMessage.showToast(Appcontext,NSAE.toString());
-			canSend = false;
-		}
-		catch(NoSuchPaddingException NSPE){
-			ToastMessage.showToast(Appcontext,NSPE.toString());
-			canSend = false;
-		}
-		catch(InvalidKeyException IKE){
-			ToastMessage.showToast(Appcontext,IKE.toString());
-			canSend = false;
-		}
-		catch(InvalidAlgorithmParameterException IAPE){
-			ToastMessage.showToast(Appcontext,IAPE.toString());
-			canSend = false;
-		}
-		catch(IllegalBlockSizeException IBSE){
-			ToastMessage.showToast(Appcontext,IBSE.toString());
-			canSend = false;
+		byte [] recievedBytes = encryption.decrypt(recieved.getData(),Key,Key);
 		}
 		catch(BadPaddingException BPE){
 			ToastMessage.showToast(Appcontext,BPE.toString());
 		}
-		try {
-			recievedString = new String(recievedBytes,"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
 
 }
