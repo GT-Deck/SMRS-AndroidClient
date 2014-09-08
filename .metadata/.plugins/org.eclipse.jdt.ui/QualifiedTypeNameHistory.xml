@@ -26,8 +26,8 @@
 <fullyQualifiedTypeName name="android.provider.Settings"/>
 <fullyQualifiedTypeName name="android.provider.Settings.Secure"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
-<fullyQualifiedTypeName name="java.net.DatagramPacket"/>
 <fullyQualifiedTypeName name="java.net.UnknownHostException"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="java.net.DatagramPacket"/>
 </qualifiedTypeNameHistroy>
