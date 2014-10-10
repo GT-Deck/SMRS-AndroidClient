@@ -6,13 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
 import android.content.Context;
 
 public class UdpClient {
