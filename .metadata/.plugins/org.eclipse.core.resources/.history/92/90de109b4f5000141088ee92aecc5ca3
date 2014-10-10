@@ -95,19 +95,18 @@ public class UdpClient {
 		String[] splitString = translate(response).split(",");
 		int recievingPort = Integer.parseInt(splitString[0]);
 		byte[] PrivateKey = splitString[1].getBytes();
-
-		byte[] encryptedResponse = Translation.Encrypt(Appcontext,
-				secondMessage.getBytes(), PrivateKey, PrivateKey);
-
-		sendP = new DatagramPacket(encryptedResponse, encryptedResponse.length,
-				URL, recievingPort);
+		
+		
+		byte[] encryptedResponse = Translation.Encrypt(Appcontext, secondMessage.getBytes(), PrivateKey, PrivateKey);
+		
+		sendP = new DatagramPacket(encryptedResponse, encryptedResponse.length, URL,recievingPort);
 		try {
 			socket.send(sendP);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	private String translate(DatagramPacket recieved) {
