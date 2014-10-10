@@ -46,11 +46,9 @@ public class UdpClient
 		recieveData = new byte[100];
 		encryption = new Encrypt();
 		
+		//Encrypt the payload
 		encryptedData = Translation.Encrypt(Appcontext, recieveData, Key, Key);
-		if(encryptedData == null){
-			canSend = false;
-		}
-		else{
+		if(encryptedData != null){
 			canSend = true;
 		}
 		
@@ -90,7 +88,7 @@ public class UdpClient
 			try {
 				socket.send(sendP);
 				socket.receive(recieveP);
-				Respond();
+				Respond(recieveP);
 			} 
 			catch (IOException e) {
 				return false;
@@ -99,42 +97,17 @@ public class UdpClient
 		}
 		return canSend;
 	}
-	private void Respond()
+	private void Respond(DatagramPacket response)
 	{
+		//progress stopped here
+		String[] splitString = translate(response).split(",");
 		
 	}
-	private void translate(DatagramPacket recieved)
+	private String translate(DatagramPacket recieved)
 	{ 
-		byte [] recievedBytes = null;
 		String recievedString;
-		try{
-		recievedBytes = encryption.decrypt(recieved.getData(),Key,Key);
-		}
-		catch(NoSuchAlgorithmException NSAE){
-			ToastMessage.showToast(Appcontext,NSAE.toString());
-		}
-		catch(NoSuchPaddingException NSPE){
-			ToastMessage.showToast(Appcontext,NSPE.toString());
-		}
-		catch(InvalidKeyException IKE){
-			ToastMessage.showToast(Appcontext,IKE.toString());
-		}
-		catch(InvalidAlgorithmParameterException IAPE){
-			ToastMessage.showToast(Appcontext,IAPE.toString());
-		}
-		catch(IllegalBlockSizeException IBSE){
-			ToastMessage.showToast(Appcontext,IBSE.toString());
-		}
-		catch(BadPaddingException BPE){
-			ToastMessage.showToast(Appcontext,BPE.toString());
-		}
-		try {
-			recievedString = new String(recievedBytes,"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		recievedString = Translation.decrypt(Appcontext, recieved, Key);
+		return recievedString;
 	}
 
 }

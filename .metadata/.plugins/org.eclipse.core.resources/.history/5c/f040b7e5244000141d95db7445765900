@@ -48,10 +48,7 @@ public class UdpClient
 		
 		//Encrypt the payload
 		encryptedData = Translation.Encrypt(Appcontext, recieveData, Key, Key);
-		if(encryptedData == null){
-			canSend = false;
-		}
-		else{
+		if(encryptedData != null){
 			canSend = true;
 		}
 		
@@ -91,7 +88,7 @@ public class UdpClient
 			try {
 				socket.send(sendP);
 				socket.receive(recieveP);
-				Respond();
+				Respond(recieveP);
 			} 
 			catch (IOException e) {
 				return false;
@@ -100,14 +97,17 @@ public class UdpClient
 		}
 		return canSend;
 	}
-	private void Respond()
+	private void Respond(DatagramPacket response)
 	{
+		//progress stopped here
+		String[] splitString = translate(response).split(",");
 		
 	}
-	private void translate(DatagramPacket recieved)
+	private String translate(DatagramPacket recieved)
 	{ 
 		String recievedString;
 		recievedString = Translation.decrypt(Appcontext, recieved, Key);
+		return recievedString;
 	}
 
 }

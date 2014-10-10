@@ -6,13 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
 import android.content.Context;
 
 public class UdpClient {
@@ -97,8 +91,9 @@ public class UdpClient {
 	}
 
 	private void Respond(DatagramPacket response) {
-		// TODO progress stopped here
+		// progress stopped here
 		String[] splitString = translate(response).split(",");
+
 	}
 
 	private String translate(DatagramPacket recieved) {
