@@ -57,17 +57,6 @@ public class DBCommander
 		tempArrayList = cursorToArrayList(temp);
 		return tempArrayList;
 	}
-	public void saveList(String listName, ArrayList<String> itemsList)
-	{
-		deleteListDB(listName);
-		createListDB(escapeSQLString(listName), itemsList);
-	}
-	public void deleteList(String list)
-	{
-		if(doesListExist(list));{
-			deleteListDB(escapeSQLString(list));
-		}
-	}
 	public void closeDB()
 	{
 		db.close();
@@ -87,33 +76,6 @@ public class DBCommander
 	{
 		return db.isOpen();
 	}
-	private boolean doesListExist(String list)
-	{
-		Cursor temp = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table' AND name=?", new String[]{list});
-		if(temp.moveToFirst()){
-			temp.close();
-			return true;
-		}
-		temp.close();
-		return false;
-	}
-	
-	private void createListDB(String listName, ArrayList<String> itemsList)
-	{
-		db.execSQL("CREATE table " + listName + " (ITEM TEXT)", new String[]{});
-		addItemsToListDB(listName,itemsList);
-	}
-	private void deleteListDB(String list)
-	{
-		if(isEscaped(list)){
-		db.execSQL("DROP TABLE IF EXISTS " + list  , new String[]{});
-		}
-		else{
-			db.execSQL("DROP TABLE IF EXISTS " + escapeSQLString(list)  , new String[]{});
-		}
-		
-	}
-	
 	private ArrayList<String> cursorToArrayList(Cursor cursor)
 	{
 		ArrayList<String> temp = new ArrayList<String>();
@@ -136,15 +98,16 @@ public class DBCommander
 		toast.show();
 	}
 
-	private void addItemsToListDB(String listName, ArrayList<String> itemsList)
+	private void addItemsToListDB(ArrayList<StarMadeServer> itemsList)
 	{
-		String sql = "INSERT INTO " + listName + " VALUES(?)";
+		String sql = "INSERT INTO " + helper.getTableName() + " VALUES(?,?)";
 		SQLiteStatement statement = db.compileStatement(sql);
 		db.beginTransaction();
-		for(String item:itemsList)
+		for(StarMadeServer item:itemsList)
 		{
 			statement.clearBindings();
-			statement.bindString(1, item);
+			statement.bindString(1, item.getName());
+			statement.bindString(2, item.getIP());
 			statement.execute();
 		}
 		db.setTransactionSuccessful();

@@ -71,8 +71,6 @@ public class UdpClient {
 
 	}
 
-	// TODO Send the encrypted payload, recieve and decrypt callback, send
-	// encrypted response
 	/**
 	 * @return Boolean True if start message successfully sent
 	 */
@@ -91,7 +89,6 @@ public class UdpClient {
 	}
 
 	private void Respond(DatagramPacket response) {
-		// TODO progress stopped here
 		String[] splitString = translate(response).split(",");
 		int recievingPort = Integer.parseInt(splitString[0]);
 		byte[] PrivateKey = splitString[1].getBytes();
