@@ -44,13 +44,11 @@ public class CustomArrayAdapter extends ArrayAdapter<StarMadeServer>
 			public void onClick(View v) {
 				client = new UdpTransaction(context, values.get(position)
 						.getIP());
-
 				try {
-					pool.execute(client);
+					pool.submit(client);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
 		});
 		return rowView;

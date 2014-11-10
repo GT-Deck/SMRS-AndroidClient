@@ -3,6 +3,7 @@ package com.decker.smrsremote;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -31,7 +32,7 @@ public class CustomArrayAdapter extends ArrayAdapter<StarMadeServer>
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 
-		pool = Executors.newSingleThreadExecutor();
+		pool = Executors.newFixedThreadPool(1);
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.list_view_item, parent, false);
@@ -44,13 +45,19 @@ public class CustomArrayAdapter extends ArrayAdapter<StarMadeServer>
 			public void onClick(View v) {
 				client = new UdpTransaction(context, values.get(position)
 						.getIP());
-
+				Future<Boolean> future = null;
 				try {
-					pool.execute(client);
+					future = pool.submit(client);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+				try {
+					if (future.get() == false) {
+						ToastMessage.showToast(context, "Failed to send");
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		return rowView;

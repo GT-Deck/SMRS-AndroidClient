@@ -46,7 +46,7 @@ public class CustomArrayAdapter extends ArrayAdapter<StarMadeServer>
 						.getIP());
 
 				try {
-					pool.execute(client);
+					pool.submit(client);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
