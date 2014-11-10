@@ -17,6 +17,13 @@ public class UdpTransaction implements Runnable {
 		client = new UdpClient(con, targetAddress, DeviceID.getBytes());
 	}
 
+	public Boolean call() throws Exception {
+		if (client.Start()) {
+			return true;
+		}
+		return false;
+	}
+
 	@Override
 	public void run() {
 		client.Start();
