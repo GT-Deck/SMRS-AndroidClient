@@ -10,5 +10,7 @@
     <string name="deleteButton">delete</string>
     <string name="placeholder">default</string>
     <string name="startBtn">Start</string>
+    <string name="serverNameHint">Server Name</string>
+    <string name="serverAddressHint">Server URL or IP/Port</string>
 
 </resources>

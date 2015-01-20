@@ -19,9 +19,8 @@
         android:hint="@string/addressInput_hint"
         android:maxWidth="75dp" />
 
-    
     <ListView
-        android:id="@android:id/list"
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"

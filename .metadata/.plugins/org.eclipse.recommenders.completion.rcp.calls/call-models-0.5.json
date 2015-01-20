@@ -21,6 +21,7 @@
   },
   "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/libs/android-support-v4.jar": {
     "location": "/Users/sdecker/SMRS-AndroidClient/SMRSRemote/libs/android-support-v4.jar",
-    "status": "UNRESOLVED"
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/Users/sdecker/SMRS-AndroidClient/SMRSRemote/libs/android-support-v4.jar\u0027. Neither fingerprint \u0027db0f122c99ef9f90dbab3fada6d191f2880cbb8e\u0027 nor symbolic name \u0027android-support-v4\u0027 are known."
   }
 }

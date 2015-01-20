@@ -73,7 +73,7 @@ public class SMRSMain extends FragmentActivity implements
 
 	@Override
 	public void onDialogPositiveClick(StarMadeServer server) {
-
+		
 		DBManager.addItemToList(server);
 
 	}
