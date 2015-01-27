@@ -35,7 +35,7 @@ public class SMRSMain extends FragmentActivity implements
 		usersServerList = (ListView) findViewById(R.id.listView);
 		serverAdapter = new CustomArrayAdapter(null, servers);
 		usersServerList.setAdapter(serverAdapter);
-
+		
 		DBManager = new DBCommander(this.getApplicationContext());
 
 		usersServerList.setOnItemClickListener(new OnItemClickListener() {
@@ -61,19 +61,15 @@ public class SMRSMain extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.delete_button:
-
 			DBManager.removeItemFromList(servers.get(ListSelection));
-			servers = DBManager.getList();
-			serverAdapter.clear();
-			serverAdapter.addAll(servers);
-			serverAdapter.notifyDataSetChanged();
 
+			// TODO removal of selected server is done here update displayed
+			// server List
 			return true;
 		case R.id.add_button:
-
-			ServerInputDialog dialog = new ServerInputDialog();
-			dialog.show(getFragmentManager(), "ServerinputDialog");
-
+			// TODO input dialogs to capture new server details
+			DBManager.addItemToList(new StarMadeServer(newServerName,
+					newServerIP));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -85,8 +81,6 @@ public class SMRSMain extends FragmentActivity implements
 
 		DBManager.addItemToList(server);
 		servers = DBManager.getList();
-		serverAdapter.clear();
-		serverAdapter.addAll(servers);
 		serverAdapter.notifyDataSetChanged();
 
 	}

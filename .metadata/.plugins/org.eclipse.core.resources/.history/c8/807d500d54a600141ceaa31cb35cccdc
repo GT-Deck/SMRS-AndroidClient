@@ -61,19 +61,20 @@ public class SMRSMain extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.delete_button:
-
+			
+			//TODO update list Displayed to the user
 			DBManager.removeItemFromList(servers.get(ListSelection));
 			servers = DBManager.getList();
 			serverAdapter.clear();
 			serverAdapter.addAll(servers);
 			serverAdapter.notifyDataSetChanged();
-
+			
 			return true;
 		case R.id.add_button:
-
-			ServerInputDialog dialog = new ServerInputDialog();
+			
+			ServerInputDialog  dialog = new ServerInputDialog();
 			dialog.show(getFragmentManager(), "ServerinputDialog");
-
+			
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

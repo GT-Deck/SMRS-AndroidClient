@@ -62,6 +62,7 @@ public class SMRSMain extends FragmentActivity implements
 		switch (item.getItemId()) {
 		case R.id.delete_button:
 
+			// TODO update list Displayed to the user
 			DBManager.removeItemFromList(servers.get(ListSelection));
 			servers = DBManager.getList();
 			serverAdapter.clear();
