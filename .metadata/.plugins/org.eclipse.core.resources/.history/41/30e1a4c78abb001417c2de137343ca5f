@@ -9,12 +9,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
 @SuppressLint("InflateParams")
 public class ServerInputDialog extends DialogFragment {
 	StarMadeServer newServer;
-	public View v;
+	// View DialogView;
 	public NoticeDialogListener listener;
 
 	public interface NoticeDialogListener {
@@ -40,32 +41,13 @@ public class ServerInputDialog extends DialogFragment {
 		}
 	}
 
-	// @Override
-	// public View onCreateView(LayoutInflater inflator, ViewGroup container,
-	// Bundle saveInstanceState) {
-	// AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-	// builder.setTitle("input Server info");
-	//
-	// View v = inflator.inflate(R.layout.server_dialog_fragment, null);
-	// builder.setView(v).setPositiveButton("OK",
-	// new DialogInterface.OnClickListener() {
-	//
-	// @Override
-	// public void onClick(DialogInterface dialog, int which) {
-	// EditText newServerName = (EditText) v
-	// .findViewById(R.id.ServerName);
-	// EditText newServerIP = (EditText) v
-	// .findViewById(R.id.ServerIP);
-	//
-	// newServer = new StarMadeServer(newServerName.getText()
-	// .toString(), newServerIP.getText().toString());
-	// listener.onDialogPositiveClick(newServer);
-	//
-	// }
-	// });
-	//
-	// return container;
-	// }
+	@Override
+	public View onCreateView(LayoutInflater inflator, ViewGroup container,
+			Bundle saveInstanceState) {
+		View v = inflator.inflate(R.layout.server_dialog_fragment, null);
+
+		return container;
+	}
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -74,19 +56,17 @@ public class ServerInputDialog extends DialogFragment {
 		 * TODO DEBUG NULLPOINTER EXCEPTION WHEN RETRIEIVING INFO FROM DIALOG
 		 * FRAGMENT SWITCH THIS METHOD OVER TO ONCREATEVIEW
 		 */
-
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle("Input Server Info");
 		// Get the layout inflater
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		final View DialogView = inflater.inflate(
 				R.layout.server_dialog_fragment, null);
-		/*
-		 * Inflate and set the layout for the dialog // Pass null as the parent
-		 * view because its going in the dialog layout
-		 */
-		builder.setView(DialogView).setPositiveButton("OK",
-				new DialogInterface.OnClickListener() {
+		// Inflate and set the layout for the dialog
+		// Pass null as the parent view because its going in the dialog layout
+		builder.setView(DialogView)
+		// Add action buttons
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int id) {
 						EditText newServerName = (EditText) DialogView

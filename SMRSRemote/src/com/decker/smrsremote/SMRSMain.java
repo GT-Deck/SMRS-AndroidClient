@@ -33,7 +33,8 @@ public class SMRSMain extends FragmentActivity implements
 		setContentView(R.layout.activity_smrsmain);
 		servers = new ArrayList<StarMadeServer>();
 		usersServerList = (ListView) findViewById(R.id.listView);
-		serverAdapter = new CustomArrayAdapter(null, servers);
+		serverAdapter = new CustomArrayAdapter(this.getApplicationContext(),
+				servers);
 		usersServerList.setAdapter(serverAdapter);
 
 		DBManager = new DBCommander(this.getApplicationContext());
@@ -72,7 +73,7 @@ public class SMRSMain extends FragmentActivity implements
 		case R.id.add_button:
 
 			ServerInputDialog dialog = new ServerInputDialog();
-			dialog.show(getFragmentManager(), "ServerinputDialog");
+			dialog.show(getFragmentManager(), "Input Server Info");
 
 			return true;
 		default:

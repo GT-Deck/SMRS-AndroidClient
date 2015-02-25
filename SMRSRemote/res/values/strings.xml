@@ -12,5 +12,6 @@
     <string name="startBtn">Start</string>
     <string name="serverNameHint">Server Name</string>
     <string name="serverAddressHint">Server URL or IP/Port</string>
+    <string name="DialogButton">OK</string>
 
 </resources>

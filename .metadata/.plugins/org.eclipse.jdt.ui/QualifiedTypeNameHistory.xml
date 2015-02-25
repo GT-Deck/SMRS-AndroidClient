@@ -33,11 +33,7 @@
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Future"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
 <fullyQualifiedTypeName name="android.app.DialogFragment"/>
-<fullyQualifiedTypeName name="android.app.Dialog"/>
-<fullyQualifiedTypeName name="android.app.AlertDialog"/>
-<fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="android.view.LayoutInflater"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
 <fullyQualifiedTypeName name="android.app.Activity"/>
@@ -46,9 +42,14 @@
 <fullyQualifiedTypeName name="android.R.id"/>
 <fullyQualifiedTypeName name="com.decker.smrsremote.R.string"/>
 <fullyQualifiedTypeName name="com.decker.smrsremote.ServerInputDialog.NoticeDialogListener"/>
-<fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.view.View"/>
-<fullyQualifiedTypeName name="android.view.ViewGroup"/>
 <fullyQualifiedTypeName name="com.decker.smrsremote.R.layout"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog"/>
+<fullyQualifiedTypeName name="android.content.DialogInterface"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
+<fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
 <fullyQualifiedTypeName name="com.decker.smrsremote.R.id"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+<fullyQualifiedTypeName name="android.app.Dialog"/>
 </qualifiedTypeNameHistroy>
