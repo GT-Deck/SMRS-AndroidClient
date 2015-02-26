@@ -31,7 +31,7 @@ public class ServerInputDialog extends DialogFragment {
 		try {
 			// Instantiate the NoticeDialogListener so we can send events to the
 			// host
-			listener = (NoticeDialogListener) activity;
+			mListener = (NoticeDialogListener) activity;
 		} catch (ClassCastException e) {
 			// The activity doesn't implement the interface, throw exception
 			throw new ClassCastException(activity.toString()
@@ -88,7 +88,6 @@ public class ServerInputDialog extends DialogFragment {
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int id) {
-						ToastMessage.showToast(getActivity(), "after on click");
 						EditText newServerName = (EditText) DialogView
 								.findViewById(R.id.ServerName);
 						EditText newServerIP = (EditText) DialogView
