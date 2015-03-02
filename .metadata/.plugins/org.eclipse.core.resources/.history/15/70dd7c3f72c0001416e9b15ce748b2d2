@@ -63,15 +63,12 @@ public class SMRSMain extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.delete_button:
-			if (ListSelection < 0) {
-				ListSelection = servers.size() - 1;
-			}
+
 			DBManager.removeItemFromList(servers.get(ListSelection));
 			servers = DBManager.getList();
 			serverAdapter.clear();
 			serverAdapter.addAll(servers);
 			serverAdapter.notifyDataSetChanged();
-			ListSelection = -1;
 
 			return true;
 		case R.id.add_button:
