@@ -39,7 +39,6 @@ public class SMRSMain extends FragmentActivity implements
 		serverAdapter = new CustomArrayAdapter(this.getApplicationContext(),
 				servers);
 		usersServerList.setAdapter(serverAdapter);
-
 		usersServerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -66,6 +65,10 @@ public class SMRSMain extends FragmentActivity implements
 			if (ListSelection < 0) {
 				ListSelection = servers.size() - 1;
 			}
+			// ToastMessage.showToast(getApplicationContext(),
+			// servers.get(ListSelection).getName());
+			// ToastMessage.showToast(getApplicationContext(),
+			// servers.get(ListSelection).getIP());
 			DBManager.removeItemFromList(servers.get(ListSelection));
 			servers = DBManager.getList();
 			serverAdapter.clear();
@@ -88,6 +91,8 @@ public class SMRSMain extends FragmentActivity implements
 	@Override
 	public void onDialogPositiveClick(StarMadeServer server) {
 
+		// ToastMessage.showToast(getApplicationContext(), server.getName());
+		// ToastMessage.showToast(getApplicationContext(), server.getIP());
 		DBManager.addItemToList(server);
 		servers = DBManager.getList();
 		serverAdapter.clear();

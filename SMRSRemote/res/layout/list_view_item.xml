@@ -28,6 +28,7 @@
          android:layout_marginRight="29dp"
          android:text="@string/startBtn"
          android:textColor="@color/text_color"
-         android:textSize="20sp" />
+         android:textSize="20sp" 
+         android:focusable = "false"/>
 
 </RelativeLayout>

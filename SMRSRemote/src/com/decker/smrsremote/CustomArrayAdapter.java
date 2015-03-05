@@ -17,32 +17,34 @@ import android.widget.TextView;
 public class CustomArrayAdapter extends ArrayAdapter<StarMadeServer>
 
 {
-	private Context context;
-	private ArrayList<StarMadeServer> values;
+	private Context Appcontext;
+	private ArrayList<StarMadeServer> Appvalues;
 	private UdpTransaction client;
 	private ExecutorService pool;
 
 	public CustomArrayAdapter(Context context, ArrayList<StarMadeServer> values) {
 		super(context, R.layout.list_view_item, values);
-		this.context = context;
-		this.values = values;
+		Appcontext = context;
+		Appvalues = values;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 
 		pool = Executors.newSingleThreadExecutor();
-		LayoutInflater inflater = (LayoutInflater) context
+		LayoutInflater inflater = (LayoutInflater) Appcontext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.list_view_item, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.item_title);
 		Button startButton = (Button) rowView.findViewById(R.id.StartBtn);
-		textView.setText(values.get(position).getName());
+		ToastMessage.showToast(Appcontext, Appvalues.get(position).getName());
+		textView.setText(Appvalues.get(position).getName());
+
 		startButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				client = new UdpTransaction(context, values.get(position)
+				client = new UdpTransaction(Appcontext, Appvalues.get(position)
 						.getIP());
 
 				try {

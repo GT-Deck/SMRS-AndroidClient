@@ -19,6 +19,7 @@ public class DBCommander {
 		helper = new MySQLiteHelper(context);
 		try {
 			db = helper.getWritableDatabase();
+
 		} catch (SQLiteException ex) {
 			showToast("Error: failed to open database, please restart application");
 		}
@@ -63,13 +64,15 @@ public class DBCommander {
 	}
 
 	public void removeItemFromList(StarMadeServer item) {
-		String sql = "DELETE FROM " + helper.getTableName() + " WHERE NAME = "
-				+ item.getName();
-		SQLiteStatement statement = db.compileStatement(sql);
-		db.beginTransaction();
-		statement.execute();
-		db.setTransactionSuccessful();
-		db.endTransaction();
+		// ToastMessage.showToast(appContext, item.getName());
+		// String sql = "DELETE FROM " + helper.getTableName() +
+		// " WHERE NAME = "
+		// + item.getName();
+		// SQLiteStatement statement = db.compileStatement(sql);
+		// db.beginTransaction();
+		// statement.execute();
+		// db.setTransactionSuccessful();
+		// db.endTransaction();
 	}
 
 	private ArrayList<StarMadeServer> cursorToArrayList(Cursor cursor) {
