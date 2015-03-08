@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.provider.Settings.Secure;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,14 +13,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
-//TODO extend fragmentActivity 
 public class SMRSMain extends FragmentActivity implements
 		ServerInputDialog.NoticeDialogListener {
 
 	public String newServerName;
 	public String newServerIP;
 	CustomArrayAdapter serverAdapter;
+	TextView UniqueId;
 	ListView usersServerList;
 	ArrayList<StarMadeServer> servers;
 	DBCommander DBManager;
@@ -35,10 +37,15 @@ public class SMRSMain extends FragmentActivity implements
 		servers = new ArrayList<StarMadeServer>();
 		servers = DBManager.getList();
 
+		UniqueId = (TextView) findViewById(R.id.IDLabel);
+		UniqueId.setText("AndroidID: "
+				+ Secure.getString(this.getContentResolver(), Secure.ANDROID_ID));
+
 		usersServerList = (ListView) findViewById(R.id.listView);
 		serverAdapter = new CustomArrayAdapter(this.getApplicationContext(),
 				servers);
 		usersServerList.setAdapter(serverAdapter);
+		;
 		usersServerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -65,16 +72,14 @@ public class SMRSMain extends FragmentActivity implements
 			if (ListSelection < 0) {
 				ListSelection = servers.size() - 1;
 			}
-			// ToastMessage.showToast(getApplicationContext(),
-			// servers.get(ListSelection).getName());
-			// ToastMessage.showToast(getApplicationContext(),
-			// servers.get(ListSelection).getIP());
-			DBManager.removeItemFromList(servers.get(ListSelection));
-			servers = DBManager.getList();
-			serverAdapter.clear();
-			serverAdapter.addAll(servers);
-			serverAdapter.notifyDataSetChanged();
-			ListSelection = -1;
+			if (servers.size() != 0) {
+				DBManager.removeItemFromList(servers.get(ListSelection));
+				servers = DBManager.getList();
+				serverAdapter.clear();
+				serverAdapter.addAll(servers);
+				serverAdapter.notifyDataSetChanged();
+				ListSelection = -1;
+			}
 
 			return true;
 		case R.id.add_button:
@@ -91,8 +96,6 @@ public class SMRSMain extends FragmentActivity implements
 	@Override
 	public void onDialogPositiveClick(StarMadeServer server) {
 
-		// ToastMessage.showToast(getApplicationContext(), server.getName());
-		// ToastMessage.showToast(getApplicationContext(), server.getIP());
 		DBManager.addItemToList(server);
 		servers = DBManager.getList();
 		serverAdapter.clear();

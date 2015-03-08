@@ -64,15 +64,8 @@ public class DBCommander {
 	}
 
 	public void removeItemFromList(StarMadeServer item) {
-		// ToastMessage.showToast(appContext, item.getName());
-		// String sql = "DELETE FROM " + helper.getTableName() +
-		// " WHERE NAME = "
-		// + item.getName();
-		// SQLiteStatement statement = db.compileStatement(sql);
-		// db.beginTransaction();
-		// statement.execute();
-		// db.setTransactionSuccessful();
-		// db.endTransaction();
+		String[] args = new String[] { item.getName() };
+		db.delete(helper.getTableName(), "Name = ?", args);
 	}
 
 	private ArrayList<StarMadeServer> cursorToArrayList(Cursor cursor) {
@@ -82,8 +75,8 @@ public class DBCommander {
 			for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor
 					.moveToNext()) {
 				if (!cursor.getString(0).equalsIgnoreCase("android_metadata")) {
-					temp.add(new StarMadeServer(cursor.getString(0), cursor
-							.getString(1)));
+					temp.add(new StarMadeServer(cursor.getString(1), cursor
+							.getString(0)));
 				}
 			}
 		}

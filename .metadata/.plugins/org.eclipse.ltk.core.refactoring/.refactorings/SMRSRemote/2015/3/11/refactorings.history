@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;IdLabel&apos; in &apos;com.decker.smrsremote.R.id&apos; to &apos;IDLabel&apos;&#x0A;- Original project: &apos;SMRSRemote&apos;&#x0A;- Original element: &apos;com.decker.smrsremote.R.id.IdLabel&apos;&#x0A;- Renamed element: &apos;com.decker.smrsremote.R.id.IDLabel&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="true" description="Rename field &apos;IdLabel&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/gen&lt;com.decker.smrsremote{R.java[R[id^IdLabel" name="IDLabel" references="true" setter="false" stamp="1425792028632" textual="false" version="1.0"/>
+</session>

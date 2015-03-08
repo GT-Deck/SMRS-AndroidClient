@@ -18,7 +18,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		/* Create the table for saving the users server IP's and Name */
-		db.execSQL("CREATE TABLE " + TABLENAME + " (IP TEXT, NAME TEXT)");
+		db.execSQL("CREATE TABLE " + TABLENAME + " (Ip TEXT,Name TEXT)");
 	}
 
 	@Override

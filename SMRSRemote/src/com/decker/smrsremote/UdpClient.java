@@ -15,7 +15,7 @@ public class UdpClient {
 	private final String secondMessage = "start";
 	private Boolean canSend = false;
 	private DatagramSocket socket = null;
-	private DatagramPacket sendP = null;
+	private DatagramPacket sendP;
 	private DatagramPacket recieveP = null;
 	private byte[] sendData;
 	private byte[] recieveData;
@@ -38,18 +38,19 @@ public class UdpClient {
 		sendData = firstMessage.getBytes();
 		recieveData = new byte[100];
 		encryption = new Encrypt();
-
 		// Encrypt the payload
 		encryptedData = Translation.Encrypt(Appcontext, sendData, Key, Key);
 		if (encryptedData != null) {
 			canSend = true;
-		}
 
+		}
 		/* Create the packets for sending and recieving */
 		try {
+
 			URL = InetAddress.getByName(address);
-			sendP = new DatagramPacket(encryptedData, sendData.length, URL,
-					3444);
+
+			sendP = new DatagramPacket(encryptedData, encryptedData.length,
+					URL, 3444);
 			recieveP = new DatagramPacket(recieveData, recieveData.length);
 			canSend = true;
 		} catch (UnknownHostException ex) {
