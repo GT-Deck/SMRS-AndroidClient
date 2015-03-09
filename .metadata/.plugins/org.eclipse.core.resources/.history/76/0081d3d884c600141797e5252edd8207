@@ -57,6 +57,11 @@ public class Encrypt {
 		} catch (NoSuchPaddingException Ex) {
 			throw Ex;
 		}
+		/*
+		 * The bug has been traced to this point. cipher.init() is throwing an
+		 * invalid key exception because of a bad key being passed Android
+		 * Unique ID the key being passed was not a valid/expected value.
+		 */
 		SecretKeySpec secretKeySpec = new SecretKeySpec(key,
 				aesEncryptionAlgorithm);
 		IvParameterSpec ivParameterSpec = new IvParameterSpec(initialVector);

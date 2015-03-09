@@ -79,11 +79,9 @@ public class UdpClient {
 		if (canSend) {
 			try {
 				socket.send(sendP);
-				System.out.println("Respond called");
 				socket.receive(recieveP);
 				Respond(recieveP);
 			} catch (IOException e) {
-				System.out.println("Exception");
 				return false;
 			}
 			return canSend;

@@ -21,6 +21,7 @@ public class UdpTransaction implements Runnable {
 
 	@Override
 	public void run() {
+		System.out.println("Run called");
 		client.Start();
 
 	}
