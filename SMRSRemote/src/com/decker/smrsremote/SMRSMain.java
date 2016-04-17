@@ -45,7 +45,7 @@ public class SMRSMain extends FragmentActivity implements
 		serverAdapter = new CustomArrayAdapter(this.getApplicationContext(),
 				servers);
 		usersServerList.setAdapter(serverAdapter);
-		;
+
 		usersServerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
